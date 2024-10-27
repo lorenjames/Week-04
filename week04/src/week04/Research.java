@@ -2,37 +2,86 @@ package week04;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Research {
 
 	
 	public static void main(String[] args) {
 
-
-		  LinkedList<String> line = new LinkedList<String>();
-	        line.add("Amanda");
-	        line.add("Brad");
-	        line.add("Cori");
-	      
-	        System.out.println("People in line: " + line);
-	        System.out.println("First person in line was: " + line.get(0));
-	        System.out.println("The last person in line was: " + line.get(2));
-	          
-	    /***** DO NOT CHANGE THE CODE ABOVE THIS LINE *****/
-	          
-	        // WRITE YOUR CODE HERE
-	        
-	        line.remove(0);
-	        line.add("Danny");
-	        
-	        
-	    
-	    /***** DO NOT CHANGE THE CODE BELOW THIS LINE *****/
-	        System.out.println("People in line now: " + line);
-	        System.out.println("Now the first person in line is: " + line.get(0));
-	        System.out.println("The last person in line is: " + line.get(2));
-	    }
+		List<String> listOfNames = new ArrayList<>();
+		
+		listOfNames.add("Richard");
+		listOfNames.add("Garyn");
+		listOfNames.add("Helene");
+		listOfNames.add("three");
+		listOfNames.add("four");
+		//listOfNames.add("five");
+		
+		System.out.println(listOfNames);
+		
+		//System.out.println(listOfNames.get(5));
+		
+		System.out.println(halfTheList(listOfNames));
+		
+		Map<String,String> input = new HashMap<>();
+		
+		input.put("Apple", "A fruit on a tree");
+		input.put("album", "A record to play");
+		
+		System.out.println(returnValuesForKeysStartingWithA(input));
+		
+		Map<String, String> javaDictionary = new HashMap<>();
+		
+		javaDictionary.put("array", "A Java Object that contains a collection of data items, all of the same type, accessed by an integer index.");
+		javaDictionary.put("test", "A Java Object that contains a collection of data items, all of the same type, accessed by an integer index.");
+		javaDictionary.put("three", "A Java Object that contains a collection of data items, all of the same type, accessed by an integer index.");
+		javaDictionary.put("4array", "A Java Object that contains a collection of data items, all of the same type, accessed by an integer index.");
+		javaDictionary.put("5array", "A Java Object that contains a collection of data items, all of the same type, accessed by an integer index.");
+		javaDictionary.put("6array", "A Java Object that contains a collection of data items, all of the same type, accessed by an integer index.");
+		javaDictionary.put("7array", "A Java Object that contains a collection of data items, all of the same type, accessed by an integer index.");
+		
+		System.out.println("Number of entries in javaDictionary: " + javaDictionary.size());
+		System.out.println(javaDictionary);
+		
+	}
+	
+	public static List<String> halfTheList(List<String> listOfNames){
+		List<String> resultList = new ArrayList<>();
+		
+		for (int index = 0; index < listOfNames.size(); index++ ) {
+			if (!(index % 2 ==0)) {
+				resultList.add(listOfNames.get(index));
+			}
+			
+		}
+		
+		return resultList;
+		
+	}
+	
+	private static List<String> returnValuesForKeysStartingWithA(Map<String,String> dictionary){
+		List<String> resultList = new ArrayList<>();
+		
+		Set<String> keySet = dictionary.keySet();
+		
+		for(String key : keySet) {
+			if(key.toLowerCase().charAt(0) == 'a') {
+				resultList.add(dictionary.get(key));
+			}
+		}
+		return resultList;
+		
+		
+	}
+	
+	
+	
+	
+	
 	}
